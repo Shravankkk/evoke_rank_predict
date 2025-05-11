@@ -21,7 +21,7 @@ def calculate():
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
 
     result = predict_rank(student_marks, easy_questions, medium_questions, hard_questions)
-    return jsonify(result)
+    return jsonify({"predicted_rank": result})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=5002)
